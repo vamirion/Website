@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkoutItems = document.getElementById('checkout-items');
     const checkoutTotal = document.getElementById('checkout-total');
     const purchaseBtn = document.getElementById('purchase-btn');
+    const BASE_URL = window.location.origin; // will automatically use the current domain
 
     // Load cart items from LocalStorage
     let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -74,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cartItems.length === 0) return;
 
         try {
-            const response = await fetch('http://localhost:3000/create-checkout-session', {
+            const response = await fetch(`${BASE_URL}/create-checkout-session`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ cartItems }),
