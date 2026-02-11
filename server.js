@@ -6,6 +6,7 @@ const rateLimit = require('express-rate-limit');
 const cors = require('cors');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const path = require('path');
+const fs = require('fs');
 
 // =========================
 // Middleware
@@ -35,9 +36,22 @@ const PORT = process.env.PORT || 3000;
 // Stripe Checkout Route
 // =========================
 
+
+const ORDERS_FILE = path.join(__dirname, 'orders.json');
+
+// Helper: save order to JSON
+function saveOrder(order) {
+    let orders = [];
+    if (fs.existsSync(ORDERS_FILE)) {
+        orders = JSON.parse(fs.readFileSync(ORDERS_FILE, 'utf-8'));
+    }
+    orders.push(order);
+    fs.writeFileSync(ORDERS_FILE, JSON.stringify(orders, null, 2));
+}
+
 app.post('/create-checkout-session', async (req, res) => {
   try {
-    const { cartItems } = req.body;
+    const { cartItems, customerEmail, shipping } = req.body;
 
     const line_items = cartItems.map(item => ({
       price_data: {
@@ -55,6 +69,8 @@ app.post('/create-checkout-session', async (req, res) => {
       payment_method_types: ['card'],
       line_items,
       mode: 'payment',
+      customer_email: customerEmail,
+      shipping_address_collection: { allowed_countries: ['SG'] },
       success_url: `${baseUrl}/success.html`,
       cancel_url: `${baseUrl}/cancel.html`,
     });
@@ -65,6 +81,41 @@ app.post('/create-checkout-session', async (req, res) => {
     console.error(err);
     res.status(500).json({ error: 'Something went wrong' });
   }
+});
+
+// Stripe webhook to capture order after payment
+app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
+    const sig = req.headers['stripe-signature'];
+
+    let event;
+    try {
+        event = stripe.webhooks.constructEvent(
+            req.body,
+            sig,
+            process.env.STRIPE_WEBHOOK_SECRET
+        );
+    } catch (err) {
+        console.error('Webhook signature verification failed:', err.message);
+        return res.status(400).send(`Webhook Error: ${err.message}`);
+    }
+
+    if (event.type === 'checkout.session.completed') {
+        const session = event.data.object;
+
+        // Save order to JSON
+        const order = {
+            email: session.customer_email,
+            shipping: session.shipping,
+            items: session.display_items || session.line_items,
+            amount_total: session.amount_total / 100,
+            timestamp: new Date().toISOString(),
+        };
+
+        saveOrder(order);
+        console.log('✅ Order saved:', order);
+    }
+
+    res.json({ received: true });
 });
 
 // =========================

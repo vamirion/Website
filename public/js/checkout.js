@@ -71,21 +71,24 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCart();
 
     // Complete purchase
-    purchaseBtn.addEventListener('click', async () => {
-        if (cartItems.length === 0) return;
+       purchaseBtn.addEventListener('click', async () => {
+        if (!cartItems.length) return;
 
         try {
-            const response = await fetch(`${BASE_URL}/create-checkout-session`, {
+            const customerEmail = prompt('Please enter your email:'); // simple email capture
+            const shipping = {}; // can add shipping details if needed
+
+            const res = await fetch(`${BASE_URL}/create-checkout-session`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ cartItems }),
+                body: JSON.stringify({ cartItems, customerEmail, shipping }),
             });
 
-            const data = await response.json();
-            window.location.href = data.url; // redirect to Stripe checkout
+            const data = await res.json();
+            window.location.href = data.url; // redirect to Stripe
         } catch (err) {
-            console.error('Payment failed', err);
-            alert('Payment could not be processed.');
+            console.error('Checkout error:', err);
+            alert('Could not process checkout.');
         }
     });
 });
