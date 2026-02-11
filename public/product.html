@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/logoXwords.png" type="image/png">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+    <div class="logo" id="logo"><img src="assets/logoXwords.png" alt="CodeNest Logo"></div>
+    <div class="nav-links">
+      <a href="shop.html">Back to Shop</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="about-hero">
+    <h1>Product Details</h1>
+  </section>
+    <div class="product-detail-container">
+        <img id="product-img" src="" alt="">
+        <div class="product-info">
+            <h1 id="product-name"></h1>
+            <p class="price" id="product-price"></p>
+            <p class="description" id="product-desc"></p>
+            <button id="add-to-cart-btn">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Floating Cart -->
+    <div id="cart" class="floating-cart">
+        🛒 <span id="cart-count">0</span>
+    </div>
+
+    <!-- Mini Cart Dropdown -->
+    <div id="mini-cart" class="mini-cart">
+        <h4>Your Cart</h4>
+        <ul id="mini-cart-items"></ul>
+        <div class="mini-cart-total">Total: $<span id="mini-cart-total">0</span></div>
+        <button id="checkout-btn">Checkout</button>
+    </div>
+
+    <script src="js/product.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

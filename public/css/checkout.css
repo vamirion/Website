@@ -1,0 +1,125 @@
+/* ------------------- Checkout Page Styles ------------------- */
+
+/* Body & Page */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Checkout Container */
+.checkout-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle;  /* Ensures proper alignment */
+}
+
+th {
+    background: #2575fc;
+    color: white;
+    border-radius: 6px 6px 0 0;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* Product name column */
+td:first-child {
+    text-align: left;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Product image */
+td:first-child img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Quantity, price, line total columns */
+td:nth-child(2),
+td:nth-child(3),
+td:nth-child(4) {
+    width: 100px;
+}
+
+/* Buttons */
+td button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 3px;
+    padding: 4px 8px;
+    background: #2575fc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+td button:hover {
+    background: #0c2968;
+}
+
+/* Total row */
+.total-row td {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Purchase button */
+#purchase-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background: #2575fc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+#purchase-btn:hover {
+    background: #0c2968;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    table, th, td {
+        font-size: 14px;
+    }
+    td button {
+        padding: 2px 5px;
+    }
+    td:nth-child(2),
+    td:nth-child(3),
+    td:nth-child(4) {
+        width: auto;
+    }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | CodeNest</title>
+    <!-- Main site styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Checkout-specific styles -->
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="icon" href="assets/logoXwords.png" type="image/png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo" id="logo"><img src="assets/logoXwords.png" alt="CodeNest Logo"></div>
+        <div class="nav-links">
+            <a href="shop.html">Back to Shop</a>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header class="about-hero">
+        <h1>Checkout</h1>
+    </header>
+
+    <main class="checkout-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price ($)</th>
+                    <th>Quantity</th>
+                    <th>Line Total ($)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="checkout-items">
+                <!-- Dynamic rows inserted by checkout.js -->
+            </tbody>
+            <tfoot>
+                <tr class="total-row">
+                    <td colspan="3">Grand Total</td>
+                    <td colspan="2" id="checkout-total">$0</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <button id="purchase-btn">Complete Purchase</button>
+    </main>
+
+    <script src="js/checkout.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+

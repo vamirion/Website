@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop | CodeNest</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/logoXwords.png" type="image/png">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo" id="logo"><img src="assets/logoXwords.png" alt="CodeNest Logo"></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="index.html#courses">Courses</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="about-hero">
+        <h1>Learning Kits & Coding Tools</h1>
+        <p>Fun tech tools for young creators</p>
+    </section>
+
+    <!-- Products -->
+    <section class="shop">
+        <div class="product-grid">
+
+            <div class="product-card" data-id="mbot2">
+                <img src="assets/mbot.png">
+                <h3>mBot2 Coding Robot</h3>
+                <p class="price">$179.00</p>
+                <a href="product.html?id=mbot2" class="view-details">View Details</a>
+                <button>Add to Cart</button>
+            </div>
+
+
+        </div>
+    </section>
+
+<!-- Floating Cart -->
+<div id="cart" class="floating-cart">
+    🛒 <span id="cart-count">0</span>
+</div>
+
+<!-- Mini Cart Dropdown -->
+<div id="mini-cart" class="mini-cart">
+    <h4>Your Cart</h4>
+    <ul id="mini-cart-items"></ul>
+    <div class="mini-cart-total">Total: $<span id="mini-cart-total">0</span></div>
+    <button id="checkout-btn">Checkout</button>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/shop.js"></script>
+</body>
+</html>
