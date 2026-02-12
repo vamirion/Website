@@ -1,94 +1,124 @@
+// public/js/checkout.js
 document.addEventListener('DOMContentLoaded', () => {
     const checkoutItems = document.getElementById('checkout-items');
     const checkoutTotal = document.getElementById('checkout-total');
     const purchaseBtn = document.getElementById('purchase-btn');
-    const BASE_URL = window.location.origin; // will automatically use the current domain
 
-    // Load cart items from LocalStorage
     let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-    function saveCart() {
-        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    }
+    const saveCart = () => localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-    function renderCart() {
-    checkoutItems.innerHTML = '';
-    let total = 0;
+    const calculateTotal = () => 
+        cartItems.reduce((sum, item) => sum + Number(item.price) * item.quantity, 0);
 
-    if (cartItems.length === 0) {
-        const emptyRow = document.createElement('tr');
-        emptyRow.innerHTML = `<td colspan="5">Your cart is empty.</td>`;
-        checkoutItems.appendChild(emptyRow);
-        checkoutTotal.innerText = '$0';
-        purchaseBtn.disabled = true;
-        purchaseBtn.style.opacity = 0.5;
-        return;
-    }
+    const renderCart = () => {
+        if (!checkoutItems) return;
 
-    cartItems.forEach((item, index) => {
-        total += item.price * item.quantity;
+        checkoutItems.innerHTML = '';
 
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td><img src="${item.image}" alt="${item.name}">${item.name}</td>
-            <td>${item.price.toFixed(2)}</td>
-            <td>${item.quantity}</td>
-            <td>${(item.price*item.quantity).toFixed(2)}</td>
-            <td>
-                <button class="dec">-</button>
-                <button class="inc">+</button>
-                <button class="remove">x</button>
-            </td>
-        `;
+        if (cartItems.length === 0) {
+            checkoutItems.innerHTML = `
+                <tr>
+                    <td colspan="5" style="text-align:center;">Your cart is empty.</td>
+                </tr>`;
+            checkoutTotal.innerText = '$0.00';
+            if (purchaseBtn) purchaseBtn.disabled = true;
+            return;
+        }
 
-        checkoutItems.appendChild(tr);
-
-        // Button handlers
-        tr.querySelector('.inc').addEventListener('click', () => {
-            item.quantity++;
-            saveCart();
-            renderCart();
+        cartItems.forEach((item, index) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>
+                    <img src="${item.image || '/images/placeholder.jpg'}" style="width:50px;height:50px;object-fit:cover;">
+                    ${item.name}
+                </td>
+                <td>$${Number(item.price).toFixed(2)}</td>
+                <td>
+                    <button class="dec" data-index="${index}">-</button>
+                    <span class="quantity">${item.quantity}</span>
+                    <button class="inc" data-index="${index}">+</button>
+                </td>
+                <td>$${(Number(item.price) * item.quantity).toFixed(2)}</td>
+                <td><button class="remove" data-index="${index}">Remove</button></td>
+            `;
+            checkoutItems.appendChild(tr);
         });
 
-        tr.querySelector('.dec').addEventListener('click', () => {
-            if (item.quantity > 1) item.quantity--;
-            saveCart();
-            renderCart();
-        });
+        checkoutTotal.innerText = `$${calculateTotal().toFixed(2)}`;
+        if (purchaseBtn) purchaseBtn.disabled = false;
 
-        tr.querySelector('.remove').addEventListener('click', () => {
-            cartItems.splice(index, 1);
-            saveCart();
-            renderCart();
-        });
-    });
+        attachCartEventListeners();
+    };
 
-    checkoutTotal.innerText = '$' + total.toFixed(2);
-    purchaseBtn.disabled = false;
-    purchaseBtn.style.opacity = 1;
-    }
+    const attachCartEventListeners = () => {
+        document.querySelectorAll('.inc').forEach(btn => btn.addEventListener('click', handleIncrement));
+        document.querySelectorAll('.dec').forEach(btn => btn.addEventListener('click', handleDecrement));
+        document.querySelectorAll('.remove').forEach(btn => btn.addEventListener('click', handleRemove));
+    };
+
+    const handleIncrement = (e) => {
+        const index = e.target.dataset.index;
+        cartItems[index].quantity++;
+        saveCart();
+        renderCart();
+    };
+
+    const handleDecrement = (e) => {
+        const index = e.target.dataset.index;
+        if (cartItems[index].quantity > 1) cartItems[index].quantity--;
+        saveCart();
+        renderCart();
+    };
+
+    const handleRemove = (e) => {
+        const index = e.target.dataset.index;
+        cartItems.splice(index, 1);
+        saveCart();
+        renderCart();
+    };
 
     renderCart();
 
-    // Complete purchase
-       purchaseBtn.addEventListener('click', async () => {
-        if (!cartItems.length) return;
+    // Handle checkout
+    if (purchaseBtn) {
+        purchaseBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            if (cartItems.length === 0) return alert('Your cart is empty!');
 
-        try {
-            const customerEmail = prompt('Please enter your email:'); // simple email capture
-            const shipping = {}; // can add shipping details if needed
+            const customerName = document.getElementById('customerName')?.value || prompt('Enter your name:');
+            const customerEmail = document.getElementById('customerEmail')?.value || prompt('Enter your email:');
 
-            const res = await fetch(`${BASE_URL}/create-checkout-session`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ cartItems, customerEmail, shipping }),
-            });
+            if (!customerName || !customerEmail) return alert('Name and email required');
+            if (!customerEmail.includes('@')) return alert('Enter a valid email');
 
-            const data = await res.json();
-            window.location.href = data.url; // redirect to Stripe
-        } catch (err) {
-            console.error('Checkout error:', err);
-            alert('Could not process checkout.');
-        }
-    });
+            purchaseBtn.disabled = true;
+            purchaseBtn.textContent = 'Processing...';
+
+            try {
+                const response = await fetch('/create-checkout-session', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ cartItems, customerName, customerEmail })
+                });
+
+                if (!response.ok) {
+                    const text = await response.text();
+                    throw new Error(text || 'Failed to create checkout session');
+                }
+
+                const data = await response.json();
+                if (!data.url) throw new Error('No checkout URL returned');
+
+                localStorage.removeItem('cartItems');
+                window.location.href = data.url;
+
+            } catch (err) {
+                console.error('Checkout error:', err);
+                alert('Checkout failed: ' + err.message);
+                purchaseBtn.disabled = false;
+                purchaseBtn.textContent = 'Proceed to Checkout';
+            }
+        });
+    }
 });

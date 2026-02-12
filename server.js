@@ -1,127 +1,117 @@
 require('dotenv').config();
 const express = require('express');
-const app = express();
-const contactRoutes = require('./routes/contact');
-const rateLimit = require('express-rate-limit');
-const cors = require('cors');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-const path = require('path');
 const fs = require('fs');
+const path = require('path');
+const Stripe = require('stripe');
+const ordersFilePath = path.join(__dirname,'orders.json');
 
-// =========================
-// Middleware
-// =========================
-
-app.set('trust proxy', 1); // for Render.com compatibility
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
-
-// =========================
-// Rate Limiter (Contact)
-// =========================
-
-const contactLimiter = rateLimit({
-  windowMs: 1 * 60 * 1000,
-  max: 2,
-  message: "Too many submissions. Please try again later."
-});
-
-app.use('/contact', contactLimiter, contactRoutes);
-
+const app = express();
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 const PORT = process.env.PORT || 3000;
+const baseURL = process.env.BASE_URL || `http://localhost:${PORT}`;
 
-// =========================
-// Stripe Checkout Route
-// =========================
+app.use(express.json());
 
+function readOrders() {
+    try {
+        if (!fs.existsSync(ordersFilePath)) {
+            fs.writeFileSync(ordersFilePath, '[]');
+        }
 
-const ORDERS_FILE = path.join(__dirname, 'orders.json');
-
-// Helper: save order to JSON
-function saveOrder(order) {
-    let orders = [];
-    if (fs.existsSync(ORDERS_FILE)) {
-        orders = JSON.parse(fs.readFileSync(ORDERS_FILE, 'utf-8'));
+        const data = fs.readFileSync(ordersFilePath, 'utf-8');
+        return JSON.parse(data || '[]');
+    } catch (err) {
+        console.error('Error reading orders file:', err);
+        return [];
     }
-    orders.push(order);
-    fs.writeFileSync(ORDERS_FILE, JSON.stringify(orders, null, 2));
 }
 
-app.post('/create-checkout-session', async (req, res) => {
-  try {
-    const { cartItems, customerEmail, shipping } = req.body;
-
-    const line_items = cartItems.map(item => ({
-      price_data: {
-        currency: 'sgd',
-        product_data: { name: item.name },
-        unit_amount: Math.round(item.price * 100),
-      },
-      quantity: item.quantity,
-    }));
-
-    // Dynamic base URL (works locally + on Render)
-    const baseUrl = process.env.BASE_URL || `http://localhost:${PORT}`;
-
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
-      line_items,
-      mode: 'payment',
-      customer_email: customerEmail,
-      shipping_address_collection: { allowed_countries: ['SG'] },
-      success_url: `${baseUrl}/success.html`,
-      cancel_url: `${baseUrl}/cancel.html`,
-    });
-
-    res.json({ url: session.url });
-
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Something went wrong' });
-  }
-});
-
-// Stripe webhook to capture order after payment
-app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
-    const sig = req.headers['stripe-signature'];
-
-    let event;
+function writeOrders(orders) {
     try {
-        event = stripe.webhooks.constructEvent(
-            req.body,
-            sig,
-            process.env.STRIPE_WEBHOOK_SECRET
-        );
+        fs.writeFileSync(ordersFilePath, JSON.stringify(orders, null, 2));
     } catch (err) {
-        console.error('Webhook signature verification failed:', err.message);
-        return res.status(400).send(`Webhook Error: ${err.message}`);
+        console.error('Error writing orders file:', err);
     }
+}
 
-    if (event.type === 'checkout.session.completed') {
-        const session = event.data.object;
+function adminAuth(req, res, next) {
+    console.log('adminKey in request:', req.query.adminKey, req.headers['x-admin-key']);
+    console.log('ENV ADMIN_KEY:', process.env.ADMIN_KEY);
 
-        // Save order to JSON
-        const order = {
-            email: session.customer_email,
-            shipping: session.shipping,
-            items: session.display_items || session.line_items,
-            amount_total: session.amount_total / 100,
-            timestamp: new Date().toISOString(),
+    const adminKey = req.headers['x-admin-key'] || req.query.adminKey;
+    if (adminKey !== process.env.ADMIN_KEY) {
+        return res.status(403).json({ error: 'Access denied: Admins only' });
+    }
+    next();
+}
+
+// ---------- Stripe Checkout ----------
+app.post('/create-checkout-session', async (req, res) => {
+    try {
+        const { cartItems, customerName, customerEmail } = req.body;
+
+        if (!cartItems?.length)
+            return res.status(400).json({ error: 'Cart is empty' });
+
+        if (!customerName || !customerEmail)
+            return res.status(400).json({ error: 'Name/email required' });
+
+        const orders = readOrders();
+
+        const newOrder = {
+            id: Date.now(), // unique ID
+            customerName,
+            customerEmail,
+            cartItems,
+            status: 'pending',
+            createdAt: new Date().toISOString()
         };
 
-        saveOrder(order);
-        console.log('✅ Order saved:', order);
-    }
+        orders.push(newOrder);
+        writeOrders(orders);
 
-    res.json({ received: true });
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            mode: 'payment',
+            customer_email: customerEmail,
+            line_items: cartItems.map(item => ({
+                price_data: {
+                    currency: 'usd',
+                    product_data: { name: item.name },
+                    unit_amount: Math.round(Number(item.price) * 100),
+                },
+                quantity: item.quantity,
+            })),
+            metadata: {
+                orderId: newOrder.id.toString()
+            },
+            success_url: `${baseURL}/success.html?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${baseURL}/cancel.html`,
+        });
+
+        res.json({ url: session.url });
+
+    } catch (err) {
+        console.error('Stripe session error:', err);
+        res.status(500).json({ error: err.message });
+    }
 });
 
-// =========================
-// Start Server (Render Compatible)
-// =========================
+
+// ---------- Success Page ----------
+app.get('/success.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'success.html'));
+});
+
+// Admin can see all orders
+app.get('/admin/orders', adminAuth, (req, res) => {
+    const orders = readOrders();
+    res.json(orders);
+});
+
+// ---------- Static Files ----------
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
