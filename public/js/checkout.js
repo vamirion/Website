@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td>
-                    <img src="${item.image || '/images/placeholder.jpg'}" style="width:50px;height:50px;object-fit:cover;">
+                    <img src="${item.image || 'assets/placeholder.jpg'}" style="width:50px;height:50px;object-fit:cover;">
                     ${item.name}
                 </td>
                 <td>$${Number(item.price).toFixed(2)}</td>
@@ -86,10 +86,17 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             if (cartItems.length === 0) return alert('Your cart is empty!');
 
-            const customerName = document.getElementById('customerName')?.value || prompt('Enter your name:');
-            const customerEmail = document.getElementById('customerEmail')?.value || prompt('Enter your email:');
+            // Get form values
+            const customerName = document.getElementById('customerName').value.trim();
+            const customerEmail = document.getElementById('customerEmail').value.trim();
+            const shippingAddress = document.getElementById('shippingAddress').value.trim();
+            const shippingCity = document.getElementById('shippingCity').value.trim();
+            const shippingPostal = document.getElementById('shippingPostal').value.trim();
 
-            if (!customerName || !customerEmail) return alert('Name and email required');
+            // Validate
+            if (!customerName || !customerEmail || !shippingAddress || !shippingCity || !shippingPostal) {
+                return alert('Please fill in all fields');
+            }
             if (!customerEmail.includes('@')) return alert('Enter a valid email');
 
             purchaseBtn.disabled = true;
@@ -99,7 +106,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch('/create-checkout-session', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ cartItems, customerName, customerEmail })
+                    body: JSON.stringify({
+                        cartItems,
+                        customerName,
+                        customerEmail,
+                        shippingAddress,
+                        shippingCity,
+                        shippingPostal
+                    })
                 });
 
                 if (!response.ok) {

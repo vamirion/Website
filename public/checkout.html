@@ -46,8 +46,31 @@
             </tfoot>
         </table>
 
-        <button id="purchase-btn">Complete Purchase</button>
+
     </main>
+    
+    <section class="checkout-form-section">
+    <form id="checkout-form">
+    <h2>Shipping & Billing Details</h2>
+
+    <label>
+        <input type="text" id="customerName" placeholder="Name" required>
+    </label>
+    <label>
+        <input type="email" id="customerEmail" placeholder="Email" required>
+    </label>
+    <label>
+        <input type="text" id="shippingAddress" placeholder="Address" required>
+    </label>
+    <label>
+        <input type="text" id="shippingCity" placeholder="City" required>
+    </label>
+    <label>
+        <input type="text" id="shippingPostal" placeholder="Postal Code" required>
+    </label>
+        <button id="purchase-btn">Complete Purchase</button>
+</form>
+
 
     <script src="js/checkout.js"></script>
     <script src="js/main.js"></script>

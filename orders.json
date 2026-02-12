@@ -1,18 +1,1 @@
-[
-  {
-    "id": 1770908985780,
-    "customerName": "sy",
-    "customerEmail": "123eagle45@gmail.com",
-    "cartItems": [
-      {
-        "id": "mbot2",
-        "name": "mBot2 Coding Robot",
-        "price": 179,
-        "image": "http://localhost:3000/assets/mbot.png",
-        "quantity": 2
-      }
-    ],
-    "status": "pending",
-    "createdAt": "2026-02-12T15:09:45.780Z"
-  }
-]
+[]

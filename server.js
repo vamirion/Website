@@ -48,7 +48,7 @@ function adminAuth(req, res, next) {
 // ---------- Stripe Checkout ----------
 app.post('/create-checkout-session', async (req, res) => {
     try {
-        const { cartItems, customerName, customerEmail } = req.body;
+        const { cartItems, customerName, customerEmail, shippingAddress, shippingCity, shippingPostal } = req.body;
 
         if (!cartItems?.length)
             return res.status(400).json({ error: 'Cart is empty' });
@@ -59,12 +59,15 @@ app.post('/create-checkout-session', async (req, res) => {
         const orders = readOrders();
 
         const newOrder = {
-            id: Date.now(), // unique ID
-            customerName,
-            customerEmail,
-            cartItems,
-            status: 'pending',
-            createdAt: new Date().toISOString()
+          id: Date.now(),
+          customerName,
+          customerEmail,
+          shippingAddress,
+          shippingCity,
+          shippingPostal,
+          cartItems,
+          status: 'pending',
+          createdAt: new Date().toISOString()
         };
 
         orders.push(newOrder);

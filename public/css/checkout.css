@@ -123,3 +123,21 @@ td button:hover {
         width: auto;
     }
 }
+
+.checkout-form-section {
+    max-width: 200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+.checkout-form-section input, .checkout-form-section textarea {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
