@@ -24,6 +24,14 @@ table {
     border-collapse: collapse;
 }
 
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
 th, td {
     padding: 12px;
     text-align: center;
@@ -125,7 +133,8 @@ td button:hover {
 }
 
 .checkout-form-section {
-    max-width: 200px;
+    max-width: 500px;
+    width: 90%;
     margin: auto;
     display: flex;
     flex-direction: column;
