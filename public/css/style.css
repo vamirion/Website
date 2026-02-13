@@ -221,11 +221,13 @@ section {
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
+
 .study-evidence img {
   display: block;             /* make it a block element */
   margin: 0 auto 25px;       /* auto left/right margin centers it */
-  width: auto;               /* keep the size */
+  width: 100%;               /* keep the size */
   max-height: 200px;
+  object-fit: contain;
 }
 
 /* Title */
