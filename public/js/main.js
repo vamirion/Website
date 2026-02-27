@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   })
-});
 
 const form = document.getElementById('contactForm');
 
@@ -31,7 +30,7 @@ const form = document.getElementById('contactForm');
             const data = Object.fromEntries(formData.entries());
 
             try {
-                const res = await fetch('/contact', {
+                const res = await fetch('/api/contact', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
@@ -72,10 +71,13 @@ window.addEventListener('scroll', () => {
 
 const logo = document.getElementById('logo');
 
-logo.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+if (logo) {
+  logo.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
-});
+}
 
+});

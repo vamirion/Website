@@ -12,6 +12,12 @@ const baseURL = process.env.BASE_URL || `http://localhost:${PORT}`;
 
 app.use(express.json());
 
+// Import route
+const contactRoutes = require('./routes/contact');
+
+// Mount API FIRST
+app.use('/api/contact', contactRoutes);
+
 function readOrders() {
     try {
         if (!fs.existsSync(ordersFilePath)) {
