@@ -292,33 +292,123 @@ ul {
     padding: 0;
 }
 
-/* Contact Form */
-.contact form {
-    max-width: 400px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
+/* SECTION */
+.contact-saas {
+    padding: 80px 20px;
 }
 
-.contact input, .contact textarea {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+/* HEADER */
+.contact-header {
+    text-align: center;
 }
 
-.contact button {
-    background: #2b6cb0;
-    color: white;
+.contact-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.contact-header p {
+    color: #666;
+    margin-bottom: 50px;
+}
+
+/* GRID */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* CARDS */
+.contact-card,
+.location-card {
+    background: white;
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* FORM */
+.contact-card h3 {
+    margin-bottom: 20px;
+}
+
+.contact-card input,
+.contact-card textarea {
+    width: 90%;
     padding: 12px;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-family: inherit;
 }
 
-.contact button:hover {
-    background: #0f215e;
+.contact-card textarea {
+    min-height: 100px;
+}
+
+.contact-card button {
+    width: 100%;
+    padding: 14px;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-card button:hover {
+    background: #3c32b4;
+}
+
+/* NOTE */
+.form-note {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* MAP */
+.map-container {
+    width: 100%;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* LOCATION TEXT */
+.location-info h3 {
+    margin-bottom: 10px;
+}
+
+.location-info p {
+    margin: 5px 0;
+}
+
+/* MAP BUTTON */
+.map-btn {
+    display: inline-block;
+    margin-top: 10px;
+    color: #4f46e5;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ---------------- PREMIUM FOOTER ---------------- */

@@ -32,12 +32,23 @@ router.post('/', async (req, res) => {
     console.log("Sending auto reply...");
 
     const autoReply = await resend.emails.send({
-      from: 'CodeNest <onboarding@resend.dev>',
+      from: 'CodeNest Team <hello@codenestsg.com>',
       to: email,
       subject: 'We received your enquiry at CodeNest!',
       html: `
         <p>Hi ${name},</p>
-        <p>Thank you for reaching out to CodeNest 😊</p>
+        <p>Thank you for reaching out to CodeNest!</p> 
+        
+        <p>We’ve received your enquiry and will get back to you within 24 hours.</p>
+
+        <p>In the meantime, here’s what to expect:</p>
+        <p>✅ Hands-on coding projects </p>
+        <p>✅ Personalized learning experience </p>
+        <p>✅ Structured 12-lesson pathway </p>
+
+        <p>Looking forward to helping your child get started!😊</p>
+
+        <p>– CodeNest Team</p>
       `,
     });
 
