@@ -2,8 +2,7 @@ name: Keep Render App Alive
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
-
+    - cron: "*/10 * * * *"
   workflow_dispatch:
 
 jobs:
@@ -13,4 +12,4 @@ jobs:
     steps:
       - name: Ping Website
         run: |
-          curl -I https://codenestsg.com
+          curl -L --fail --silent --show-error https://codenestsg.com
