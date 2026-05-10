@@ -1,15 +1,15 @@
 name: Keep Render App Alive
 
 on:
-  schedule:
-    - cron: "*/10 * * * *"
   workflow_dispatch:
+  schedule:
+    - cron: '*/10 * * * *'
 
 jobs:
   ping:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Ping Website
+      - name: Ping website
         run: |
-          curl -L --fail --silent --show-error https://codenestsg.com
+          curl -L https://codenestsg.com || true
