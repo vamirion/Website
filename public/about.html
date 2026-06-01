@@ -4,131 +4,93 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us | CodeNest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="assets/logoXwords.png" type="image/png">
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo" id="logo"><img src="assets/logoXwords.png" alt="CodeNest Logo"></div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="index.html#courses">Courses</a>
-      <a href="index.html#contact">Contact</a>
-      <!--<a href="shop.html">Shop</a>-->
+<nav class="navbar">
+  <a class="logo" id="logo" href="index.html" aria-label="CodeNest Home"><img src="assets/logoXwords.png" alt="CodeNest Logo"></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#courses">Courses</a>
+    <a href="about.html">About</a>
+    <a href="index.html#contact" class="nav-cta">Book Trial</a>
+  </div>
+</nav>
+
+<section class="about-hero upgraded">
+  <div class="about-hero-content">
+    <span class="eyebrow"><i class="fa-solid fa-seedling"></i> About CodeNest</span>
+    <h1>Helping Children Become Confident Creators of Technology</h1>
+    <p>We make coding, robotics, and AI approachable for primary school students through structured, hands-on projects that build logic, creativity, and resilience.</p>
+    <div class="about-cta-actions">
+      <a href="index.html#contact" class="cta-button">Book a Trial Class</a>
+      <a href="index.html#courses" class="cta-button btn-secondary">Explore Courses</a>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <!-- Hero -->
-  <section class="about-hero">
-    <h1>Inspiring Young Minds Through Code</h1>
-    <p>Fun, creative, and hands-on coding classes for students aged 9–12 in Singapore</p>
-  </section>
+<section class="about-section about-intro">
+  <span class="section-kicker">Our Story</span>
+  <h2>Why We Started CodeNest</h2>
+  <div class="about-story-card">
+    <p>Children today are surrounded by technology, but many only experience it as users. CodeNest was created to help students understand what happens behind the screen — then use that understanding to build games, program robots, and solve meaningful challenges.</p>
+    <p>Our lessons are designed to feel fun and approachable while still developing serious thinking skills: decomposition, logic, debugging, creativity, communication, and confidence.</p>
+  </div>
+</section>
 
-  <!-- Our Mission -->
-  <section class="about-section">
-    <div class="about-text">
-      <h2>Our Mission</h2>
-      <h3>
-        At CodeNest, our mission is to empower the next generation of creators by making 
-        coding education fun, accessible, and inspiring for young students. We ensure that learning to code is an 
-        exciting adventure that sparks creativity and builds confidence, setting children on a path to become innovators of the future.
-      </h3>
-    </div>
-  </section>
+<section class="about-section light">
+  <span class="section-kicker">Mission & Vision</span>
+  <h2>What Guides Us</h2>
+  <div class="promise-grid">
+    <div class="promise-card"><div class="about-icon-card"><i class="fa-solid fa-bullseye"></i></div><h3>Our Mission</h3><p>To make coding education fun, accessible, and inspiring so children can build confidence through real projects.</p></div>
+    <div class="promise-card"><div class="about-icon-card"><i class="fa-solid fa-eye"></i></div><h3>Our Vision</h3><p>A future where every child has the chance to become a creator of technology, not just a consumer of it.</p></div>
+    <div class="promise-card"><div class="about-icon-card"><i class="fa-solid fa-heart"></i></div><h3>Our Promise</h3><p>We keep lessons supportive, beginner-friendly, and practical, with clear progress parents can see.</p></div>
+  </div>
+</section>
 
-  <!-- Our Vision -->
-  <section class="about-section">
-    <div class="about-text">
-      <h2>Our Vision</h2>
-      <h3>
-        We envision a future where every child has the opportunity to learn coding in a fun 
-        and supportive environment, empowering them to become creators of technology rather than just consumers in the future.
-      </h3>
-    </div>
-  </section>
+<section class="about-section">
+  <span class="section-kicker">Our Values</span>
+  <h2>What We Believe</h2>
+  <div class="features values-upgraded">
+    <div class="feature-card"><img src="assets/fun_learning.jpg" alt="Fun Learning"><h3>Fun Learning</h3><p>Students learn best when they are curious, engaged, and excited to test their ideas.</p></div>
+    <div class="feature-card"><img src="assets/creativity.jpg" alt="Creativity"><h3>Creativity</h3><p>We encourage students to turn their imagination into games, robot behaviours, and digital projects.</p></div>
+    <div class="feature-card"><img src="assets/skills.jpg" alt="Future Skills"><h3>Future Skills</h3><p>We build logical thinking, problem-solving, and confidence that support school and beyond.</p></div>
+  </div>
+</section>
 
-  <!-- Values -->
-  <section class="about-section light">
-    <h2>What We Believe</h2>
-    <div class="features">
-        <div class="feature-card">
-            <img src="assets/fun_learning.jpg" alt="Fun Learning">
-            <h3>Fun Learning</h3>
-            <p>We make coding exciting and interactive so students enjoy learning.</p>
-        </div>
-        <div class="feature-card">
-            <img src="assets/creativity.jpg" alt="Creativity">
-            <h3>Creativity</h3>
-            <p>We encourage our students to think outside the box and bring their ideas to life.</p>
-        </div>
-        <div class="feature-card">
-            <img src="assets/skills.jpg" alt="Skills">
-            <h3>Future Skills</h3>
-            <p>We equip our students with skills in coding, problem-solving, and logical thinking.</p>
-        </div>
-    </div>
-  </section>
+<section class="about-section light">
+  <span class="section-kicker">Why Parents Choose Us</span>
+  <h2>A Supportive Pathway for Beginners</h2>
+  <div class="about-values-grid">
+    <div class="value-card"><div class="about-icon-card"><i class="fa-solid fa-stairs"></i></div><h3>Step-by-Step Structure</h3><p>No coding experience needed. Students progress through guided projects with clear learning outcomes.</p></div>
+    <div class="value-card"><div class="about-icon-card"><i class="fa-solid fa-robot"></i></div><h3>Hands-On Projects</h3><p>Children learn by building, testing, debugging, and improving real games and robot behaviours.</p></div>
+    <div class="value-card"><div class="about-icon-card"><i class="fa-solid fa-child-reaching"></i></div><h3>Confidence First</h3><p>We create a safe environment where mistakes become learning moments, not reasons to give up.</p></div>
+  </div>
+</section>
 
-  <!-- Why Choose Us -->
-  <section class="about-section">
-    <h2>Why Parents Choose CodeNest</h2>
-    <ul class="why-list">
-      <li>✔ Beginner-friendly, no experience needed</li>
-      <li>✔ Safe, supportive learning environment</li>
-      <li>✔ Builds logic, creativity, and focus</li>
-    </ul>
-  </section>
+<section class="about-cta upgraded">
+  <h2>Ready to Start Your Child’s Coding Journey?</h2>
+  <p>Book a trial class and see whether CodeNest is the right fit for your child.</p>
+  <div class="about-cta-actions">
+    <a href="index.html#contact" class="cta-button">Join a Trial Class</a>
+    <a href="https://wa.me/93652821" class="cta-button btn-secondary">WhatsApp Us</a>
+  </div>
+</section>
 
-  <!-- Call to Action -->
-  <section class="about-cta">
-    <h2>Ready to Start Your Child’s Coding Journey?</h2>
-    <a href="index.html#contact" class="cta-button">Join a Class</a>
-  </section>
+<footer class="premium-footer">
+  <div class="footer-container">
+    <div class="footer-brand"><h2><img src="assets/logowwords.png" alt="CodeNest Logo"></h2><p>Empowering students to create — not just consume — technology.</p></div>
+    <div class="footer-links"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="index.html#courses">Courses</a><a href="index.html#contact">Contact</a></div>
+    <div class="footer-social"><h4>Find Us</h4><div class="social-icons"><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://www.facebook.com/share/1Jkwm1nsH2/?mibextid=wwXIfr" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="https://wa.me/93652821" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div><div class="footer-email"><a href="mailto:codenestsg@gmail.com"><i class="fas fa-envelope"></i> codenestsg@gmail.com</a></div></div>
+  </div>
+  <div class="footer-bottom">© 2026 CodeNest. All Rights Reserved.</div>
+</footer>
 
-  <!-- Footer -->
-  <footer class="premium-footer">
-    <div class="footer-container">
-
-      <div class="footer-brand">
-        <h2><img src="assets/logowwords.png" alt="CodeNest Logo"></h2>
-        <p>Empowering students to create — not just consume — technology.</p>
-      </div>
-
-      <div class="footer-links">
-        <h4>Explore</h4>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <!-- <a href="shop.html">Shop</a> -->
-        <a href="index.html#contact">Contact</a>
-      </div>
-
-      <div class="footer-social">
-        <h4>Find Us</h4>
-        <div class="social-icons">
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/share/1Jkwm1nsH2/?mibextid=wwXIfr" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          <a href="https://wa.me/93652821" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-        <div class="footer-email">
-          <a href="mailto:codenestsg@gmail.com">
-          <i class="fas fa-envelope"></i>
-          or email us @codenestsg@gmail.com
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      © 2026 CodeNest. All Rights Reserved.
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+<a href="https://wa.me/93652821" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i><span>WhatsApp Us</span></a>
+<script src="js/main.js"></script>
 </body>
 </html>

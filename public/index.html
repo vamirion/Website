@@ -1,399 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <title>CodeNest | Building the Future</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="assets/logoXwords.png" type="image/png">
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>CodeNest | Coding, Robotics & AI for Kids</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/logoXwords.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
 
-<!-- Navigation -->
 <nav class="navbar">
-    <div class="logo" id="logo"><img src="assets/logoXwords.png" alt="CodeNest Logo"></div>
-    <div class="nav-links">
-        <a href="about.html">About</a>
-        <a href="#courses">Courses</a>
-        <a href="#contact">Contact</a>
-        <!--<a href="shop.html">Shop</a>-->
-    </div>
+  <a class="logo" id="logo" href="index.html" aria-label="CodeNest Home"><img src="assets/logoXwords.png" alt="CodeNest Logo"></a>
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="#courses">Courses</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="nav-cta">Book Trial</a>
+  </div>
 </nav>
 
-<!-- Hero Section -->
-<header class="hero">
-    <div class="hero-content">
-        <div class="hero-text">
-            <h1>CodeNest</h1>
-            <p>Empowering students to create — not just consume — technology.</p>
-            <a href="#contact" class="btn">Book a Trial Class</a>
-        </div>
-        <div class="hero-image">
-            <img src="assets/mbot2.jpg" alt="Kids coding on laptops">
-        </div>
+<header class="hero hero-upgraded">
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="hero-badge"><i class="fa-solid fa-robot"></i> Coding • Robotics • AI for Primary Students</span>
+      <h1>Build Their Future <span class="hero-title-accent">One Project at a Time</span></h1>
+      <p>Hands-on lessons where children learn to solve problems, build games, program real robots, and become confident creators of technology.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn">Book a Trial Class <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#courses" class="btn btn-secondary">View Course Pathway</a>
+      </div>
+      <div class="hero-meta">
+        <span><i class="fa-solid fa-check"></i> Beginner-friendly</span>
+        <span><i class="fa-solid fa-check"></i> Project-based</span>
+        <span><i class="fa-solid fa-check"></i> Small classes</span>
+      </div>
     </div>
+    <div class="hero-image hero-visual-card">
+      <img src="assets/mbot2.jpg" alt="mBot2 robotics project">
+      <div class="floating-stat stat-one"><strong>12</strong><span>lesson pathway</span></div>
+      <div class="floating-stat stat-two"><strong>AI</strong><span>projects included</span></div>
+    </div>
+  </div>
 </header>
 
-<div class="wave"></div>
+<div class="trust-strip">
+  <div class="trust-pill"><i class="fa-solid fa-lightbulb"></i> Critical Thinking</div>
+  <div class="trust-pill"><i class="fa-solid fa-puzzle-piece"></i> Problem Solving</div>
+  <div class="trust-pill"><i class="fa-solid fa-gamepad"></i> Games & Robotics</div>
+  <div class="trust-pill"><i class="fa-solid fa-user-shield"></i> Safe Environment</div>
+</div>
 
-<!-- Videos Section -->
-<section class="videos">
-    <h2>See mBot2 in Action</h2>
-    <p>Watch how learners build and program their own robots through fun projects.</p>
-
-    <div class="video-grid">
-        <div class="video">
-            <iframe src="https://www.youtube.com/embed/uxpoP175mOU"
-                title="Coding Class Demo"
-                frameborder="0"
-                allowfullscreen></iframe>
-        </div>
-
-        <div class="video">
-            <iframe src="https://www.youtube.com/embed/YbH6mNsWM14"
-                title="Robotics Class"
-                frameborder="0"
-                allowfullscreen></iframe>
-        </div>
-
+<section class="problem-solution">
+  <span class="section-kicker">Why CodeNest</span>
+  <h2>From Screen Time to Skill-Building Time</h2>
+  <p>Children use technology every day. CodeNest helps them understand how technology works, then guides them to create their own projects with logic, creativity, and confidence.</p>
+  <div class="split-grid">
+    <div class="compare-card soft-warning">
+      <h3><i class="fa-solid fa-mobile-screen"></i> Before</h3>
+      <ul>
+        <li>Mostly consuming games, videos, and apps</li>
+        <li>Unsure how to approach new problems</li>
+        <li>Limited exposure to real-world tech creation</li>
+      </ul>
     </div>
+    <div class="compare-card soft-success">
+      <h3><i class="fa-solid fa-code"></i> After</h3>
+      <ul>
+        <li>Builds games, animations, robots, and AI projects</li>
+        <li>Breaks problems into clear, manageable steps</li>
+        <li>Gains confidence through visible project outcomes</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<!-- What Kids Will Build -->
+<section class="videos elevated-section">
+  <span class="section-kicker">Demo</span>
+  <h2>See mBot2 in Action</h2>
+  <p>Watch how learners build and program their own robots through fun, hands-on projects.</p>
+  <div class="video-grid">
+    <div class="video"><iframe src="https://www.youtube.com/embed/uxpoP175mOU" title="Coding Class Demo" frameborder="0" allowfullscreen></iframe></div>
+    <div class="video"><iframe src="https://www.youtube.com/embed/YbH6mNsWM14" title="Robotics Class" frameborder="0" allowfullscreen></iframe></div>
+  </div>
+</section>
+
 <section class="build" id="build">
-    <h2>Capstone Projects</h2>
-    <div class="project-gallery">
-        <div class="project-item">
-            <img src="assets/game.png" alt="Game Project">
-            <h3>Build Their Own Games</h3>
-        </div>
-
-        <div class="project-item">
-            <img src="assets/robot.jpg" alt="Robot Project">
-            <h3>Program Real Robots</h3>
-        </div>
-    </div>
+  <span class="section-kicker">Capstone Projects</span>
+  <h2>What Students Will Build</h2>
+  <p>Each project is designed to turn abstract coding concepts into something children can see, test, improve, and proudly show.</p>
+  <div class="project-gallery upgraded-gallery">
+    <div class="project-item"><img src="assets/game.png" alt="Game Project"><h3>Build Their Own Games</h3><p>Interactive Scratch projects that teach loops, events, variables, and logic.</p></div>
+    <div class="project-item"><img src="assets/robot.jpg" alt="Robot Project"><h3>Program Real Robots</h3><p>mBot2 challenges involving sensors, movement, junctions, and automation.</p></div>
+    <div class="project-item"><img src="assets/mbot2ai.png" alt="AI Project"><h3>Explore AI Concepts</h3><p>Simple, age-appropriate AI activities that make modern technology less mysterious.</p></div>
+  </div>
 </section>
 
-<!-- Benefits Section -->
 <section class="benefits">
-    <h2>Why Start Coding Young?</h2>
-
-    <div class="grid">
-
-        <div class="card hover-card">
-            <img src="assets/creativity.jpg" alt="Computational Thinking">
-            <h3>Develops Computational Thinking</h3>
-
-            <div class="card-text">
-                <p>
-                    Learning to code teaches children how to think step-by-step, recognize patterns, 
-                    and approach challenges logically. These thinking skills are useful not just in programming, 
-                    but in mathematics, science, and everyday problem-solving.
-                </p>
-                <p>
-                    Computational thinking is broken down into four key components: decomposition, pattern recognition,
-                    abstraction, and algorithms.
-                </p>
-            </div>
-        </div>
-
-        <div class="card hover-card">
-            <img src="assets/problem.jpg" alt="Problem Solving">
-            <h3>Improves Problem-Solving</h3>
-
-            <div class="card-text">
-                <p>
-                    When our students code, they learn to break big problems into smaller parts. 
-                    This helps them stay calm when facing difficult tasks and builds resilience when solutions don’t work the first time.
-                </p>
-            </div>
-        </div>
-
-        <div class="card hover-card">
-            <img src="assets/create.jpg" alt="Creativity">
-            <h3>Boosts Creativity</h3>
-
-            <div class="card-text">
-                <p>
-                    Our students don’t just use apps — they create games, animations, and digital projects. 
-                    Coding becomes a tool for imagination, allowing them to turn ideas into something real and interactive.
-                </p>
-            </div>
-        </div>
-
-        <div class="card hover-card">
-            <img src="assets/confidence.jpg" alt="Confidence">
-            <h3>Builds Confidence</h3>
-
-            <div class="card-text">
-                <p>
-                    When our students see their code come to life, they feel proud of what they’ve built. 
-                    This sense of achievement grows their confidence and encourages them to try new challenges.
-                </p>
-            </div>
-        </div>
-
-        <div class="card hover-card">
-            <img src="assets/skills.jpg" alt="Skills">
-            <h3>Prepares for the Future</h3>
-
-            <div class="card-text">
-                <p>
-                    Technology is part of every industry today. Learning coding early gives children an advantage 
-                    in this digital age — even if they choose careers outside of technology.
-                </p>
-            </div>
-        </div>
-    </div>
-
+  <span class="section-kicker">Learning Outcomes</span>
+  <h2>Why Start Coding Young?</h2>
+  <div class="grid outcome-grid">
+    <div class="card hover-card"><img src="assets/creativity.jpg" alt="Computational Thinking"><h3>Computational Thinking</h3><div class="card-text"><p>Students learn decomposition, pattern recognition, abstraction, and algorithms through practical projects.</p></div></div>
+    <div class="card hover-card"><img src="assets/problem.jpg" alt="Problem Solving"><h3>Problem-Solving</h3><div class="card-text"><p>They learn to break big challenges into smaller steps and debug calmly when things do not work yet.</p></div></div>
+    <div class="card hover-card"><img src="assets/create.jpg" alt="Creativity"><h3>Creativity</h3><div class="card-text"><p>Coding becomes a tool for imagination, letting children turn their ideas into games, robots, and animations.</p></div></div>
+    <div class="card hover-card"><img src="assets/confidence.jpg" alt="Confidence"><h3>Confidence</h3><div class="card-text"><p>Seeing code come to life gives students a strong sense of achievement and willingness to try harder tasks.</p></div></div>
+    <div class="card hover-card"><img src="assets/skills.jpg" alt="Future Skills"><h3>Future Skills</h3><div class="card-text"><p>Students build early familiarity with technology, logic, and digital creation across many future pathways.</p></div></div>
+  </div>
 </section>
 
 <section class="study-evidence">
-        <h2>Research-Backed Benefits</h2>
-        <p>
-            Research shows that learning computational thinking and coding is linked with gains in critical thinking,
-            problem solving, and analytical reasoning in children.
-        </p>
-        <img src="assets/study1.png">
-        <blockquote>
-            "Our quantitative results showed an improvement in the students’ creative thinking,
-             critical thinking and problem-solving skills after the intervention. This finding was verified by our qualitative study, 
-             which found that students perceived that the programming curriculum not only equipped them with knowledge in programming
-             and computer operation, but also enhanced their thinking skills, problem solving skills and creativity through the process
-             of designing and creating their own games."
-        </blockquote>
-        <p class="study-source">
-            Wong, G. K. W., & Cheung, H. Y. (2020). Exploring children’s perceptions of developing twenty-first century skills through computational 
-            thinking and programming. Interactive Learning Environments, 28(4), 438–450. https://doi.org/10.1080/10494820.2018.1534245
-        </p>
+  <span class="section-kicker">Research-Backed</span>
+  <h2>Coding Builds More Than Coding Skills</h2>
+  <p>Research shows that learning computational thinking and coding is linked with gains in critical thinking, problem solving, and analytical reasoning in children.</p>
+  <img src="assets/study1.png" alt="Research-backed benefits visual">
+  <blockquote>“Students perceived that the programming curriculum not only equipped them with knowledge in programming and computer operation, but also enhanced their thinking skills, problem solving skills and creativity.”</blockquote>
+  <p class="study-source">Wong, G. K. W., & Cheung, H. Y. (2020). Interactive Learning Environments, 28(4), 438–450.</p>
 </section>
 
-<!-- Trust Section -->
-<section class="trust">
-    <h2>Why Join Our Classes?</h2>
-    <h3>Small class sizes • Learning through action • Project-based approach • Safe environment</h3>
-</section>
-
-<!-- Courses Section -->
 <section class="courses" id="courses">
-    <h2>Our Course Pathway</h2>
-    <h3>We hold a 12-lesson course to teach students the fundamentals of programming, robotics, and AI.</h3>
-    <div class="grid">
-        <div class="card">
-            <h3>Lessons 1-5</h3>
-            <p>Manouvre with mBot2 and learn basic programming concepts through makeblock.</p>
-            <img src="assets/mbot2child.jpg" alt="mBot2 Robot">
-        </div>
-        <div class="card">
-            <h3>Lessons 6-9</h3>
-            <p>Design and build your own simple game using programming concepts with Scratch.</p>
-            <img src="assets/scratch.png" alt="Game Creation">
-        </div>
-        <div class="card">
-            <h3>Lessons 10-12</h3>
-            <p>Dive into the world of AI and machine learning with mBot2.</p>
-            <img src="assets/mbot2ai.png" alt="AI and Machine Learning">
-        </div>
-    </div>
+  <span class="section-kicker">Course Pathway</span>
+  <h2>Structured 12-Lesson Journey</h2>
+  <p>Students move from fundamentals to robotics, Scratch game creation, and introductory AI projects.</p>
+  <div class="timeline-grid">
+    <div class="timeline-card"><span>01</span><h3>Lessons 1–5</h3><p>Move with mBot2 and learn core programming concepts through hands-on robot challenges.</p><img src="assets/mbot2child.jpg" alt="mBot2 Robot"></div>
+    <div class="timeline-card"><span>02</span><h3>Lessons 6–9</h3><p>Design and build simple games using Scratch while reinforcing loops, events, variables, and conditionals.</p><img src="assets/scratch.png" alt="Game Creation"></div>
+    <div class="timeline-card"><span>03</span><h3>Lessons 10–12</h3><p>Explore AI and machine learning ideas with mBot2 through guided, age-appropriate activities.</p><img src="assets/mbot2ai.png" alt="AI and Machine Learning"></div>
+  </div>
 </section>
 
 <section class="testimonials">
-    <h2>What Parents Say</h2>
-    <p class="subtitle">Feedback from our students and parents</p>
-
-    <div class="testimonial-grid">
-
-        <div class="testimonial-card">
-            <p class="quote">
-                “My son looks forward to every lesson. He even started building his own games at home!”
-            </p>
-            <div class="author">
-                <strong>Mrs Tan, Parent of Adam (P3)</strong>
-            </div>
-        </div>
-
-        <div class="testimonial-card">
-            <p class="quote">
-                “Very structured and engaging. The teacher explains concepts clearly and keeps lessons fun.”
-            </p>
-            <div class="author">
-                <strong>Mrs Lim, Parent of Su Qi (P5)</strong>
-            </div>
-        </div>
-
-        <div class="testimonial-card">
-            <p class="quote">
-                “I like that it’s hands-on. My child is not just watching but actually working on impactful projects.”
-            </p>
-            <div class="author">
-                <strong>Mrs Wong, Parent of P4 student</strong>
-            </div>
-        </div>
-
-    </div>
+  <span class="section-kicker">Parent Feedback</span>
+  <h2>What Parents Say</h2>
+  <p class="subtitle">Feedback from our students and parents</p>
+  <div class="testimonial-grid">
+    <div class="testimonial-card"><p class="quote">“My son looks forward to every lesson. He even started building his own games at home!”</p><div class="author"><strong>Mrs Tan, Parent of Adam (P3)</strong></div></div>
+    <div class="testimonial-card"><p class="quote">“Very structured and engaging. The teacher explains concepts clearly and keeps lessons fun.”</p><div class="author"><strong>Mrs Lim, Parent of Su Qi (P5)</strong></div></div>
+    <div class="testimonial-card"><p class="quote">“I like that it’s hands-on. My child is not just watching but actually working on impactful projects.”</p><div class="author"><strong>Mrs Wong, Parent of P4 student</strong></div></div>
+  </div>
 </section>
 
-<section class="faq">
-    <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-container">
-
-        <div class="faq-item">
-            <button class="faq-question">What age is this suitable for?</button>
-            <div class="faq-answer">
-                <p>Our programme is designed for primary school students (P3–P6), with content tailored to their level.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">Do students need prior coding experience?</button>
-            <div class="faq-answer">
-                <p>No prior experience is required. We guide students from basics to more advanced concepts step-by-step.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">What equipment is required?</button>
-            <div class="faq-answer">
-                <p>All necessary materials and equipment such as laptops and robots will be provided.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">What will my child learn?</button>
-            <div class="faq-answer">
-                <p>Students will learn programming fundamentals, game development, robotics, and basic AI concepts.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">How will this actually benefit my child long-term?</button>
-            <div class="faq-answer">
-                <p>The program builds foundational skills in logical thinking, problem-solving, and technology, skills that are increasingly important in future education and careers.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">Can this help with school applications?</button>
-            <div class="faq-answer">
-                <p>Yes, students complete projects that can be included in portfolios, demonstrating both creativity and technical skills for school admission</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">Where are classes held?</button>
-            <div class="faq-answer">
-                <p>Classes are conducted at our centre at Beauty World.</p>
-            </div>
-        </div>
-
-    </div>
+<section class="faq" id="faq">
+  <span class="section-kicker">FAQ</span>
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-container">
+    <div class="faq-item"><button class="faq-question">What age is this suitable for?</button><div class="faq-answer"><p>Our programme is designed for primary school students, with content tailored to their level.</p></div></div>
+    <div class="faq-item"><button class="faq-question">Do students need prior coding experience?</button><div class="faq-answer"><p>No prior experience is required. We guide students from basics to more advanced concepts step-by-step.</p></div></div>
+    <div class="faq-item"><button class="faq-question">What equipment is required?</button><div class="faq-answer"><p>All necessary materials and equipment such as laptops and robots will be provided.</p></div></div>
+    <div class="faq-item"><button class="faq-question">What will my child learn?</button><div class="faq-answer"><p>Students learn programming fundamentals, game development, robotics, and introductory AI concepts.</p></div></div>
+    <div class="faq-item"><button class="faq-question">Where are classes held?</button><div class="faq-answer"><p>Classes are conducted at our centre at Beauty World.</p></div></div>
+  </div>
 </section>
 
-<section id="contact" class="contact-saas">
-
-    <div class="contact-header">
-        <h2>Start Your Child’s Coding Journey</h2>
-        <p>Book a trial class today — limited slots available each week.</p>
+<section id="contact" class="contact-saas upgraded-contact">
+  <div class="contact-header">
+    <span class="section-kicker">Start Here</span>
+    <h2>Book a Trial Class</h2>
+    <p>Share your child’s age and experience level. We’ll recommend a suitable starting point.</p>
+  </div>
+  <div class="contact-wrapper">
+    <div class="contact-card">
+      <h3>Send an Enquiry</h3>
+      <form id="contactForm">
+        <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off">
+        <input name="name" placeholder="Parent's Name" required>
+        <input name="email" type="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Child's age, preferred timing, and any questions"></textarea>
+        <button type="submit">Send Enquiry</button>
+      </form>
+      <p class="form-note">✅ No commitment required • We’ll reply within 24 hours</p>
     </div>
-
-    <div class="contact-wrapper">
-
-        <!-- FORM -->
-        <div class="contact-card">
-            <h3>Book a Trial Class</h3>
-
-            <form id="contactForm">
-                <input type="text" name="website" style="display:none">
-
-                <input name="name" placeholder="Name" required>
-                <input name="email" type="email" placeholder="Email" required>
-                <textarea name="message" placeholder="Message"></textarea>
-
-                <button type="submit">Send Enquiry</button>
-            </form>
-
-            <p class="form-note">
-                ✅ No commitment required • We’ll reply within 24 hours
-            </p>
-        </div>
-
-        <!-- LOCATION -->
-        <div class="location-card">
-
-            <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.723343027056!2d103.77149569678954!3d1.3423741000000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da108a6a44061f%3A0x4c25aa294f56084c!2sBeauty%20World%20Centre!5e0!3m2!1sen!2ssg!4v1775481420276!5m2!1sen!2ssg"
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
-            </div>
-
-            <div class="location-info">
-                <h3>Visit Our Centre</h3>
-                <p>📍144 Upper Bukit Timah Rd, Singapore 588177</p>
-                <p>🕒 By appointment only</p>
-
-                <a href="https://maps.google.com?q=144 Upper Bukit Timah Rd Singapore 588177" 
-                   target="_blank" 
-                   class="map-btn">
-                    Open in Google Maps →
-                </a>
-            </div>
-
-        </div>
-
+    <div class="location-card">
+      <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.723343027056!2d103.77149569678954!3d1.3423741000000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da108a6a44061f%3A0x4c25aa294f56084c!2sBeauty%20World%20Centre!5e0!3m2!1sen!2ssg!4v1775481420276!5m2!1sen!2ssg" loading="lazy" allowfullscreen=""></iframe></div>
+      <div class="location-info"><h3>Visit Our Centre</h3><p>📍144 Upper Bukit Timah Rd, Singapore 588177</p><p>🕒 By appointment only</p><a href="https://maps.google.com?q=144 Upper Bukit Timah Rd Singapore 588177" target="_blank" class="map-btn">Open in Google Maps →</a></div>
     </div>
-
+  </div>
 </section>
 
-<!-- Footer -->
 <footer class="premium-footer">
   <div class="footer-container">
-
-    <div class="footer-brand">
-      <h2><img src="assets/logowwords.png" alt="CodeNest Logo"></h2>
-      <p>Empowering students to create — not just consume — technology.</p>
-    </div>
-
-    <div class="footer-links">
-      <h4>Explore</h4>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <!-- <a href="shop.html">Shop</a> -->
-      <a href="index.html#contact">Contact</a>
-    </div>
-
-    <div class="footer-social">
-      <h4>Find Us</h4>
-      <div class="social-icons">
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/share/1Jkwm1nsH2/?mibextid=wwXIfr" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="https://wa.me/93652821" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      </div>
-
-        <div class="footer-email">
-            <a href="mailto:codenestsg@gmail.com">
-            <i class="fas fa-envelope"></i>
-            or email us @codenestsg@gmail.com
-            </a>
-        </div>
-    </div>
-
+    <div class="footer-brand"><h2><img src="assets/logowwords.png" alt="CodeNest Logo"></h2><p>Empowering students to create — not just consume — technology.</p></div>
+    <div class="footer-links"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="index.html#courses">Courses</a><a href="index.html#contact">Contact</a></div>
+    <div class="footer-social"><h4>Find Us</h4><div class="social-icons"><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://www.facebook.com/share/1Jkwm1nsH2/?mibextid=wwXIfr" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="https://wa.me/93652821" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div><div class="footer-email"><a href="mailto:codenestsg@gmail.com"><i class="fas fa-envelope"></i> codenestsg@gmail.com</a></div></div>
   </div>
-
-  <div class="footer-bottom">
-    © 2026 CodeNest. All Rights Reserved.
-  </div>
+  <div class="footer-bottom">© 2026 CodeNest. All Rights Reserved.</div>
 </footer>
 
+<a href="https://wa.me/93652821" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i><span>WhatsApp Us</span></a>
 <script src="js/main.js"></script>
 </body>
 </html>
