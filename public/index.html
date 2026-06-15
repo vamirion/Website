@@ -12,8 +12,17 @@
 <body>
 
 <nav class="navbar">
-  <a class="logo" id="logo" href="index.html" aria-label="CodeNest Home"><img src="assets/logoXwords.png" alt="CodeNest Logo"></a>
-  <div class="nav-links">
+  <a class="logo" id="logo" href="index.html" aria-label="CodeNest Home">
+    <img src="assets/logoXwords.png" alt="CodeNest Logo">
+  </a>
+
+  <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-links" id="primary-navigation">
     <a href="about.html">About</a>
     <a href="#courses">Courses</a>
     <a href="#faq">FAQ</a>
@@ -188,5 +197,27 @@
 
 <a href="https://wa.me/93652821" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i><span>WhatsApp Us</span></a>
 <script src="js/main.js"></script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation menu');
+      });
+    });
+  }
+</script>
 </body>
 </html>

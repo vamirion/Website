@@ -89,4 +89,23 @@ document.querySelectorAll(".faq-question").forEach(button => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (!menuBtn || !navLinks) return;
+
+    menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        menuBtn.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+            menuBtn.classList.remove("active");
+        });
+    });
+});
+
 });
