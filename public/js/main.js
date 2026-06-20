@@ -108,4 +108,66 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+/* =========================================================
+   MOBILE HAMBURGER MENU
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (!menuToggle || !navLinks) return;
+
+    menuToggle.addEventListener("click", () => {
+
+        const isOpen = navLinks.classList.toggle("active");
+
+        menuToggle.classList.toggle("active");
+
+        document.body.classList.toggle("nav-open", isOpen);
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("active");
+            menuToggle.classList.remove("active");
+            document.body.classList.remove("nav-open");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+        });
+
+    });
+
+    document.addEventListener("click", (e) => {
+
+        const clickedInsideNav =
+            navLinks.contains(e.target) ||
+            menuToggle.contains(e.target);
+
+        if (!clickedInsideNav) {
+
+            navLinks.classList.remove("active");
+            menuToggle.classList.remove("active");
+            document.body.classList.remove("nav-open");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+        }
+    });
+
+});
+
 });

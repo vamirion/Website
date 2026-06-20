@@ -12,11 +12,20 @@
 <body>
 
 <nav class="navbar">
-  <a class="logo" id="logo" href="index.html" aria-label="CodeNest Home"><img src="assets/logoXwords.png" alt="CodeNest Logo"></a>
+  <a class="logo" id="logo" href="index.html" aria-label="CodeNest Home">
+    <img src="assets/logoXwords.png" alt="CodeNest Logo">
+  </a>
+
+  <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="index.html#courses">Courses</a>
-    <a href="about.html">About</a>
+    <a href="#tutors">Tutors</a>
     <a href="index.html#contact" class="nav-cta">Book Trial</a>
   </div>
 </nav>
@@ -24,11 +33,11 @@
 <section class="about-hero upgraded">
   <div class="about-hero-content">
     <span class="eyebrow"><i class="fa-solid fa-seedling"></i> About CodeNest</span>
-    <h1>Helping Children Become Confident Creators of Technology</h1>
-    <p>We make coding, robotics, and AI approachable for primary school students through structured, hands-on projects that build logic, creativity, and resilience.</p>
+    <h1>Helping Students Become Confident Creators of Technology</h1>
+    <p>CodeNest is run by two tutors who combine coding, robotics, and project-based teaching to help primary school students understand technology by building it.</p>
     <div class="about-cta-actions">
       <a href="index.html#contact" class="cta-button">Book a Trial Class</a>
-      <a href="index.html#courses" class="cta-button btn-secondary">Explore Courses</a>
+      <a href="#tutors" class="cta-button btn-secondary">Meet Our Tutors</a>
     </div>
   </div>
 </section>
@@ -37,18 +46,54 @@
   <span class="section-kicker">Our Story</span>
   <h2>Why We Started CodeNest</h2>
   <div class="about-story-card">
-    <p>Children today are surrounded by technology, but many only experience it as users. CodeNest was created to help students understand what happens behind the screen — then use that understanding to build games, program robots, and solve meaningful challenges.</p>
-    <p>Our lessons are designed to feel fun and approachable while still developing serious thinking skills: decomposition, logic, debugging, creativity, communication, and confidence.</p>
+    <p>Technology is becoming part of every industry and every part of society. At CodeNest, we believe every student — regardless of gender or background — deserves the chance to understand programming further, because programming is not only a valuable skill but also a way to think critically and creatively.</p>
+    <p>We started CodeNest to make programming, robotics, and AI feel approachable for primary school students. Through hands-on projects, students build games, program robots, and learn to solve meaningful challenges with confidence.</p>
+    <p>Our lessons are designed to feel fun and supportive while still developing serious thinking skills: decomposition, logic, debugging, creativity, communication, and resilience.</p>
   </div>
 </section>
+
+<section class="about-section light">
+  <span class="section-kicker">Why Coding Matters Today</span>
+  <h2>Preparing Students for a Technology-Driven Future</h2>
+  <div class="about-values-grid">
+    <div class="value-card">
+      <div class="about-icon-card"><i class="fa-solid fa-globe"></i></div>
+      <h3>Technology Is Everywhere</h3>
+      <p>Students are growing up in a world shaped by technology. Learning how it works helps them become creators, not just consumers.</p>
+    </div>
+    <div class="value-card">
+      <div class="about-icon-card"><i class="fa-solid fa-puzzle-piece"></i></div>
+      <h3>Problem Solving for Life</h3>
+      <p>Coding teaches students to break down challenges, think logically, test ideas, and improve their solutions step by step.</p>
+    </div>
+    <div class="value-card">
+      <div class="about-icon-card"><i class="fa-solid fa-seedling"></i></div>
+      <h3>Future-Ready Skills</h3>
+      <p>Programming builds creativity, resilience, communication, and analytical thinking that extend far beyond technology lessons.</p>
+    </div>
+  </div>
+</section>
+
 
 <section class="about-section light">
   <span class="section-kicker">Mission & Vision</span>
   <h2>What Guides Us</h2>
   <div class="promise-grid">
-    <div class="promise-card"><div class="about-icon-card"><i class="fa-solid fa-bullseye"></i></div><h3>Our Mission</h3><p>To make coding education fun, accessible, and inspiring so children can build confidence through real projects.</p></div>
-    <div class="promise-card"><div class="about-icon-card"><i class="fa-solid fa-eye"></i></div><h3>Our Vision</h3><p>A future where every child has the chance to become a creator of technology, not just a consumer of it.</p></div>
-    <div class="promise-card"><div class="about-icon-card"><i class="fa-solid fa-heart"></i></div><h3>Our Promise</h3><p>We keep lessons supportive, beginner-friendly, and practical, with clear progress parents can see.</p></div>
+    <div class="promise-card">
+      <div class="about-icon-card"><i class="fa-solid fa-bullseye"></i></div>
+      <h3>Our Mission</h3>
+      <p>To make coding education fun, accessible, and inclusive so every child can build confidence through real programming, robotics, and AI projects.</p>
+    </div>
+    <div class="promise-card">
+      <div class="about-icon-card"><i class="fa-solid fa-eye"></i></div>
+      <h3>Our Vision</h3>
+      <p>A future where students of all backgrounds see technology as something they can create, question, and shape — not just consume.</p>
+    </div>
+    <div class="promise-card">
+      <div class="about-icon-card"><i class="fa-solid fa-heart"></i></div>
+      <h3>Our Promise</h3>
+      <p>We keep lessons supportive, beginner-friendly, and practical, with clear progress parents can see.</p>
+    </div>
   </div>
 </section>
 
@@ -56,9 +101,127 @@
   <span class="section-kicker">Our Values</span>
   <h2>What We Believe</h2>
   <div class="features values-upgraded">
-    <div class="feature-card"><img src="assets/fun_learning.jpg" alt="Fun Learning"><h3>Fun Learning</h3><p>Students learn best when they are curious, engaged, and excited to test their ideas.</p></div>
-    <div class="feature-card"><img src="assets/creativity.jpg" alt="Creativity"><h3>Creativity</h3><p>We encourage students to turn their imagination into games, robot behaviours, and digital projects.</p></div>
-    <div class="feature-card"><img src="assets/skills.jpg" alt="Future Skills"><h3>Future Skills</h3><p>We build logical thinking, problem-solving, and confidence that support school and beyond.</p></div>
+    <div class="feature-card">
+      <img src="assets/fun_learning.jpg" alt="Fun Learning">
+      <h3>Fun Learning</h3>
+      <p>Students learn best when they are curious, engaged, and excited to test their ideas.</p>
+    </div>
+    <div class="feature-card">
+      <img src="assets/creativity.jpg" alt="Creativity">
+      <h3>Creativity</h3>
+      <p>We encourage students to turn their imagination into games, robot behaviours, and digital projects.</p>
+    </div>
+    <div class="feature-card">
+      <img src="assets/skills.jpg" alt="Future Skills">
+      <h3>Future Skills</h3>
+      <p>We build logical thinking, problem-solving, and confidence that support school and beyond.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about-section light" id="tutors">
+  <span class="section-kicker">Meet Your Instructors</span>
+  <h2>Guiding Students Beyond Coding</h2>
+  <p class="section-intro">
+    At CodeNest, our instructors believe coding is more than learning a programming language. It is a way for students to develop logical thinking, creativity, resilience, and confidence through building real projects.
+  </p>
+
+  <div class="tutor-cred-grid">
+
+    <article class="tutor-profile-card">
+      <div class="tutor-profile-top">
+        <img src="assets/shan.jpg" alt="Shan Yuan" class="tutor-photo">
+
+        <div>
+          <span class="tutor-label">Co-Founder</span>
+          <h3>Shan Yuan</h3>
+          <p class="tutor-role">Coding, Robotics & AI Instructor</p>
+        </div>
+      </div>
+
+      <p class="tutor-summary">
+        As a graduate with a computing background and an MOE-registered instructor, Shan Yuan is passionate about helping young learners understand technology through structured, hands-on learning experiences. He specialises in making complex concepts accessible and engaging, guiding students through coding, robotics, and AI projects that develop computational thinking, creativity, and problem-solving skills. Drawing on his teaching experience, Shan creates a supportive environment where students are encouraged to explore ideas, learn from mistakes, and build the confidence to tackle challenges independently.
+      </p>
+
+      <div class="credential-block">
+        <h4><i class="fa-solid fa-lightbulb"></i> Areas of Expertise</h4>
+        <ul>
+          <li>Programming and computational thinking</li>
+          <li>Educational robotics and project-based learning</li>
+          <li>Technology and AI concepts for young learners</li>
+          <li>Building confidence through structured challenges</li>
+        </ul>
+      </div>
+
+      <div class="teaching-focus">
+        <span>Teaching Philosophy</span>
+        <p>
+          Every child can learn to code when concepts are broken into manageable steps and connected to meaningful projects.
+        </p>
+      </div>
+    </article>
+
+    <article class="tutor-profile-card featured-tutor-profile">
+      <div class="tutor-profile-top">
+        <img src="assets/partner.jpg" alt="[Partner Name]" class="tutor-photo">
+
+        <div>
+          <span class="tutor-label">Co-Founder</span>
+          <h3>Jerold Lim</h3>
+          <p class="tutor-role">Programming & Project Instructor</p>
+        </div>
+      </div>
+
+      <p class="tutor-summary">
+        As a graduate with a computing background and the developer of numerous real-world technology projects, Jerold brings a practical and project-driven approach to learning. He believes students learn best by creating, experimenting, and applying concepts through meaningful projects. Through coding, robotics, and technology challenges, Jerold helps students strengthen their logical thinking, creativity, and resilience while building confidence in their ability to solve problems independently. His teaching style emphasises curiosity, exploration, and turning ideas into tangible outcomes.
+      </p>
+
+      <div class="credential-block">
+        <h4><i class="fa-solid fa-code"></i> Areas of Expertise</h4>
+        <ul>
+          <li>Programming concepts and real-world project development</li>
+          <li>Problem-solving and logical reasoning</li>
+          <li>Student-centred learning approaches</li>
+          <li>Hands-on coding and robotics activities</li>
+        </ul>
+      </div>
+
+      <div class="teaching-focus">
+        <span>Teaching Philosophy</span>
+        <p>
+          Students learn best when they are encouraged to explore, test ideas, make mistakes, and discover solutions independently.
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="about-section tutor-expertise-section">
+  <span class="section-kicker">How This Helps Your Child</span>
+  <h2>Course Expertise That Connects Directly to Student Outcomes</h2>
+
+  <div class="expertise-grid">
+    <div class="expertise-card">
+      <div class="about-icon-card"><i class="fa-solid fa-code"></i></div>
+      <h3>Programming Foundations</h3>
+      <p>We teach loops, conditionals, variables, events, functions, and logic through projects students can build and understand.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="about-icon-card"><i class="fa-solid fa-robot"></i></div>
+      <h3>Robotics Application</h3>
+      <p>Students learn how code controls real robots through movement, sensors, testing, debugging, and challenge-based tasks.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="about-icon-card"><i class="fa-solid fa-brain"></i></div>
+      <h3>Introductory AI Projects</h3>
+      <p>AI concepts are introduced in an age-appropriate way so students can explore modern technology safely and curiously.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="about-icon-card"><i class="fa-solid fa-puzzle-piece"></i></div>
+      <h3>Computational Thinking</h3>
+      <p>Students learn to break problems into smaller steps, identify patterns, simplify ideas, and design clear solutions.</p>
+    </div>
   </div>
 </section>
 
@@ -66,9 +229,21 @@
   <span class="section-kicker">Why Parents Choose Us</span>
   <h2>A Supportive Pathway for Beginners</h2>
   <div class="about-values-grid">
-    <div class="value-card"><div class="about-icon-card"><i class="fa-solid fa-stairs"></i></div><h3>Step-by-Step Structure</h3><p>No coding experience needed. Students progress through guided projects with clear learning outcomes.</p></div>
-    <div class="value-card"><div class="about-icon-card"><i class="fa-solid fa-robot"></i></div><h3>Hands-On Projects</h3><p>Children learn by building, testing, debugging, and improving real games and robot behaviours.</p></div>
-    <div class="value-card"><div class="about-icon-card"><i class="fa-solid fa-child-reaching"></i></div><h3>Confidence First</h3><p>We create a safe environment where mistakes become learning moments, not reasons to give up.</p></div>
+    <div class="value-card">
+      <div class="about-icon-card"><i class="fa-solid fa-stairs"></i></div>
+      <h3>Step-by-Step Structure</h3>
+      <p>No coding experience needed. Students progress through guided projects with clear learning outcomes.</p>
+    </div>
+    <div class="value-card">
+      <div class="about-icon-card"><i class="fa-solid fa-robot"></i></div>
+      <h3>Hands-On Projects</h3>
+      <p>Children learn by building, testing, debugging, and improving real games and robot behaviours.</p>
+    </div>
+    <div class="value-card">
+      <div class="about-icon-card"><i class="fa-solid fa-child-reaching"></i></div>
+      <h3>Confidence First</h3>
+      <p>We create a safe environment where mistakes become learning moments, not reasons to give up.</p>
+    </div>
   </div>
 </section>
 
@@ -83,9 +258,29 @@
 
 <footer class="premium-footer">
   <div class="footer-container">
-    <div class="footer-brand"><h2><img src="assets/logowwords.png" alt="CodeNest Logo"></h2><p>Empowering students to create — not just consume — technology.</p></div>
-    <div class="footer-links"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="index.html#courses">Courses</a><a href="index.html#contact">Contact</a></div>
-    <div class="footer-social"><h4>Find Us</h4><div class="social-icons"><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://www.facebook.com/share/1Jkwm1nsH2/?mibextid=wwXIfr" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="https://wa.me/93652821" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div><div class="footer-email"><a href="mailto:codenestsg@gmail.com"><i class="fas fa-envelope"></i> codenestsg@gmail.com</a></div></div>
+    <div class="footer-brand">
+      <h2><img src="assets/logowwords.png" alt="CodeNest Logo"></h2>
+      <p>Empowering students to create — not just consume — technology.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#courses">Courses</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="footer-social">
+      <h4>Find Us</h4>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1Jkwm1nsH2/?mibextid=wwXIfr" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/93652821" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <div class="footer-email">
+        <a href="mailto:codenestsg@gmail.com"><i class="fas fa-envelope"></i> codenestsg@gmail.com</a>
+      </div>
+    </div>
   </div>
   <div class="footer-bottom">© 2026 CodeNest. All Rights Reserved.</div>
 </footer>
