@@ -1871,7 +1871,7 @@ section { position: relative; }
 }
 .videos { padding: 65px 28px; }
 .video iframe { aspect-ratio: 16/9; height: auto; min-height: 280px; }
-.upgraded-gallery { max-width: var(--container); display: grid; grid-template-columns: repeat(3,1fr); }
+.upgraded-gallery { max-width: var(--container); display: grid; grid-template-columns: repeat(3,1fr); align-items: center; gap: 24px; margin: 35px auto 0; }
 .project-item {
   background: #fff; padding: 18px; box-shadow: var(--shadow-soft); text-align: left; width: auto;
 }
